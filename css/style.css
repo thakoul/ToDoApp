@@ -1,0 +1,146 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+
+:root {
+  --charcoal-gray: rgb(51, 51, 51);
+  --vivid-azure-blue: rgb(0, 170, 255);
+  --vivid-azure-blue-tr: rgba(0, 170, 255, 0.1);
+  --vivid-azure-blue-tr-hov: rgba(0, 170, 255, 0.2);
+  --crimson-red: rgb(200, 0, 0);
+  --crimson-red-tr: rgba(200, 0, 0, 0.1);
+  --crimson-red-tr-hov: rgba(200, 0, 0, 0.2);
+  --light-sky-blue: rgb(200, 240, 255);
+}
+
+body {
+  background: var(--charcoal-gray);
+  color: var(--light-sky-blue);
+  /* overflow-y: hidden; */
+}
+
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding-top: 0.5rem;
+  padding-left: 0;
+  height: 65vh;
+  overflow-y: auto;
+}
+
+.todo-list li {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+/* FORM */
+
+.form {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+/* TODO TEXT INPUT */
+
+input[type="text"] {
+  font-size: inherit;
+  border: 0;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+}
+input[type="text"]:focus-visible {
+  outline: none;
+}
+
+/* BUTTONS */
+
+.btn {
+  font-size: inherit;
+  font-family: inherit;
+  background: var(--vivid-azure-blue-tr);
+  border: 1px solid var(--vivid-azure-blue);
+  color: var(--vivid-azure-blue);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--vivid-azure-blue-tr-hov);
+  transform: translateY(-0.1rem);
+}
+
+.btn-delete {
+  background: var(--crimson-red-tr);
+  border: 1px solid var(--crimson-red);
+  color: var(--crimson-red);
+}
+
+.btn-delete:hover,
+.btn-delete:focus-visible {
+  background: var(--crimson-red-tr-hov);
+}
+
+/* CHECKBOXES CSS */
+
+.todo-list-item input {
+  display: none;
+}
+
+.todo-list-item label {
+  position: relative;
+  cursor: pointer;
+}
+
+.todo-list-item label:before {
+  content: "";
+  appearance: none;
+  border: 1px solid var(--vivid-azure-blue);
+  background: var(--vivid-azure-blue-tr);
+  border-radius: 5px;
+  padding: 12px;
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.8rem;
+}
+
+.todo-list li:has(input:checked) label:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 2px;
+  left: 8px;
+  width: 6px;
+  height: 16px;
+  border: solid var(--vivid-azure-blue);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+/* PERCENTAGE */
+
+.completed-percentage {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem;
+  padding-left: 1rem;
+  font-size: 1.5rem;
+  background: var(--vivid-azure-blue);
+}
